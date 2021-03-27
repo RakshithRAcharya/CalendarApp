@@ -16,3 +16,4 @@ Flask-WhooshAlchemy==0.56
 Flask-WTF==0.14.2
 Jinja2==2.10.3
 WTForms==2.2.1
+pymysql

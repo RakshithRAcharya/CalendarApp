@@ -1,5 +1,6 @@
 import pymysql
 import sqlite3
+import os
 from app import app
 from datetime import datetime
 from db_config import mysql
@@ -13,7 +14,8 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
-PROJECT_ROOT = '/Users/rakshithacharya/Desktop/Software_Engineering_Calendar'
+dir = os.getcwd()
+PROJECT_ROOT = dir
 
 app.config['SECRET_KEY'] = 'Thisissupposedtobesecret!'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + PROJECT_ROOT + '/database.db'
@@ -90,11 +92,11 @@ def calendar_events():
 	try:
 		conn = sqlite3.connect("database.db")
 		cursor = conn.cursor();
-		#cursor.execute("SELECT id, title, url, class, UNIX_TIMESTAMP(start_date)*1000 as start, UNIX_TIMESTAMP(end_date)*1000 as end FROM event")
+		cursor.execute("SELECT id, title, url, class, UNIX_TIMESTAMP(start_date)*1000 as start, UNIX_TIMESTAMP(end_date)*1000 as end FROM event")
 
 		sql_select = "SELECT id, title, url, type, (strftime('%s', start_time)-28800)*1000 as start, (strftime('%s', end_time)-28800)*1000 as end FROM event where author_name='" + current_user.username + "'";
 		rows = cursor.execute(sql_select).fetchall()
-		#rows = cursor.fetchall()
+		rows = cursor.fetchall()
 
 		rows_dict = []
 		dict_key = ('id','title','url','class','start','end')
