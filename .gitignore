@@ -129,3 +129,7 @@ dmypy.json
 .pyre/
 
 .vscode
+# main2.py
+db_config.py
+# database.db
+stuff.py

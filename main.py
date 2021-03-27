@@ -30,13 +30,13 @@ login_manager.login_view = 'login'
 
 class User(UserMixin, db.Model):
 	id = db.Column(db.Integer, primary_key=True)
-	username = db.Column(db.String(15), unique=True) #
+	username = db.Column(db.String(15), unique=True) 
 	email = db.Column(db.String(15), unique=True)
 	password = db.Column(db.String(80))
 
 class Event(db.Model):
 	id = db.Column(db.Integer, primary_key=True)  # unique id
-	title = db.Column(db.String)					# biaoti
+	title = db.Column(db.String)
 	url = db.Column(db.String)
 	type = db.Column(db.String) # class??
 	start_time = db.Column(db.TIMESTAMP)  # datetime
