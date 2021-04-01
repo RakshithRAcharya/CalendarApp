@@ -77,7 +77,7 @@ class SearchForm(FlaskForm):
 @app.route('/')
 def index():
 	#return render_template('calendar_events.html')
-	return render_template('index.html')
+	return render_template('calendar_events.html')
 
 
 @app.route('/dashboard',methods=['GET','POST']) # profile
