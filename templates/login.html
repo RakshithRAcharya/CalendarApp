@@ -7,7 +7,7 @@ Login log in
 {% block content %}
     <div class="container">
         <div class="column is-4 is-offset-4">
-            <h3 class="title">log in Login</h3>
+            <h3 class="title">Login</h3>
             <div class="box">
                 <form class="form-signin" method="POST" action="/login">
                 {{ form.hidden_tag() }}
@@ -29,16 +29,12 @@ Login log in
                     </div>
                 </div>
                 <button class="button is-block is-info is-fullwidth" type="submit">
-                    Login log in
+                    Login
                 </button>
                 {% with messages = get_flashed_messages() %}
                 {% if messages[0] == 'Username does not exist or password is incorrect' %}
                     <div class="notification is-warning">
                         {{ messages[0] }}
-                    </div>
-                {% else %}
-                    <div class="notification is-primary">
-                        {{ messages[0] }}. <a href="{{ url_for('login') }}">Click here to go to log in</a>.
                     </div>
                 {% endif %}
                 {% endwith %}

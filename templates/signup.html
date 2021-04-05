@@ -9,7 +9,7 @@ Sign Up registered
 {% block content %}
     <div class="container">
         <div class="column is-4 is-offset-4">
-            <h3 class="title">Register Sign Up</h3>
+            <h3 class="title">Register/Sign Up</h3>
             <div class="box">
                 <form class="form-signin" method="POST" action="/signup">
                     {{ form.hidden_tag() }}
@@ -33,7 +33,7 @@ Sign Up registered
                     <small id="emailHelp" class="form-text text-muted">We will not share your data with anyone.</small>
                     {#The form that inherit the wtf#}
                     <button class="button is-block is-info is-fullwidth" type="submit">
-                        Sign Up registered
+                        Sign Up
                     </button>
 
                     {% with messages = get_flashed_messages() %}

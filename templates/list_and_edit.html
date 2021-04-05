@@ -80,7 +80,7 @@
              <th>Schedule type</th>
             <th>Starting time</th>
             <th>End Time</th>
-            <th>Edit button</th>
+            <th>Share button</th>
              <th>Delete button</th>
           </tr>
         </thead>
@@ -93,7 +93,7 @@
                 <td>{{ event_list[i].start_time }}</td>
                 <td>{{ event_list[i].end_time }}</td>
                 <td>
-                    <button class="btn-warning">modify</button>
+                    <button class="btn-warning">Share</button>
                 </td>
                 <td>
 					<input type="button" class="btn-danger" value="delete" onclick="deleteEntry({{event_list[i].id}});">
