@@ -90,23 +90,23 @@ class Event(db.Model):
 		conn.close()
 		return redirect(url_for('Event_Utils:edit'))
 
-class Event_Utils(FlaskView):
-	route_base = '/'
-
-	@route('/edit/<int:event_id>', methods = ['GET', 'POST'])
+	@app.route('/edit/<int:event_id>', methods = ['GET', 'POST'])
 	def descirbe(event_id):
 		print("Incoming at this time Event ID % i" % event_id)
 		one_event = Event.query.filter_by(id=event_id).first()
 		print("Find the Event successfully:" + one_event.title)
 		return render_template('one_event.html', event=one_event)
 
-
-	@route('/check/<int:event_id>', methods = ['GET', 'POST'])
+	@app.route('/check/<string:event_name>', methods = ['GET', 'POST'])
 	def check(event_name):
 		# event name is a string
 		tmp_e = db.session.query(Event).filter_by(title=event_name).first()
 		check_list_event = db.session.query(Event).filter(Event.title.ilike(event_name)).all()
+		print(check_list_event)
+		#return jsonify({'Check_list_event' : check_list_event})
 
+class Event_Utils(FlaskView):
+	route_base = '/'
 	@route('/edit', methods=['GET', 'POST'])
 	def edit(event_id=None):
 		
